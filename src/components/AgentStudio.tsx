@@ -3,6 +3,10 @@
 import { useCallback, useState } from "react";
 import type { PlanResponse, TravelMode, ToolCall } from "@/lib/types";
 import { PRESETS, PLACES } from "@/lib/mocks/beijing";
+import {
+  runPlan as executePlan,
+  runReplan as executeReplan,
+} from "@/lib/agent/planner";
 import ToolTrace from "./ToolTrace";
 import ResultCard from "./ResultCard";
 
@@ -52,14 +56,15 @@ export default function AgentStudio() {
       if (override?.modes) setModes(override.modes);
 
       try {
-        const res = await fetch("/api/plan", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const data = (await res.json()) as PlanResponse & { error?: string };
-        if (!res.ok || !data.ok) {
-          throw new Error(data.error || "规划失败");
+        if (!payload.origin.trim() || !payload.destination.trim()) {
+          throw new Error("请填写起点与终点");
+        }
+        if (payload.modes.length === 0) {
+          throw new Error("请至少选择一种出行方式");
+        }
+        const data = await executePlan(payload);
+        if (!data.ok) {
+          throw new Error("规划失败");
         }
         setTools(data.tools);
         setResult(data);
@@ -76,22 +81,20 @@ export default function AgentStudio() {
     setReplanLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/replan", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          origin,
-          destination,
-          arriveBy,
-          modes: modes.includes("打车") ? modes : [...modes, "打车"],
-          delayMin: 15,
-          previousLeaveBy: result?.recommendation.leaveBy,
-          previousRouteId: result?.recommendation.primaryRoute.id,
-        }),
+      if (!origin.trim() || !destination.trim()) {
+        throw new Error("缺少起点或终点");
+      }
+      const data = await executeReplan({
+        origin,
+        destination,
+        arriveBy,
+        modes: modes.includes("打车") ? modes : [...modes, "打车"],
+        delayMin: 15,
+        previousLeaveBy: result?.recommendation.leaveBy,
+        previousRouteId: result?.recommendation.primaryRoute.id,
       });
-      const data = (await res.json()) as PlanResponse & { error?: string };
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "改线失败");
+      if (!data.ok) {
+        throw new Error("改线失败");
       }
       setTools(data.tools);
       setResult(data);

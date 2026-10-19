@@ -3,8 +3,10 @@
 ## 在线入口（ACC 2026）
 
 - **公开仓库**: https://github.com/yigenfeng0707-netizen/xingqian-yike
-- **可运行 Demo（StackBlitz 一键）**: https://stackblitz.com/github/yigenfeng0707-netizen/xingqian-yike
-- 本地: `npm ci && npm run build && npm run start` → http://localhost:3000/studio
+- **可运行 Demo（GitHub Pages）**: https://yigenfeng0707-netizen.github.io/xingqian-yike/studio/
+- **备用（StackBlitz）**: https://stackblitz.com/github/yigenfeng0707-netizen/xingqian-yike
+- 本地开发: `npm install && npm run dev` → http://localhost:3000/xingqian-yike/studio/  
+  （`basePath` 为 `/xingqian-yike`；生产为静态导出，请用 `npm run build` 生成 `out/`，`next start` 不适用）
 
 
 > ACC 2026 Time to Build · **赛道：AI+生活** · 方向：智慧出行  
@@ -59,11 +61,10 @@ export OPENAI_MODEL=gpt-4o-mini
 ## 架构
 
 ```
-浏览器 /studio
-  → POST /api/plan | /api/replan
-    → Agent 编排（src/lib/agent/planner.ts）
-      → tools: weather / route / leave_time / replan
-      → mocks: 海淀·中关村·国贸等
+浏览器 /studio（静态页）
+  → 直接调用 planner.runPlan / runReplan（客户端）
+    → tools: weather / route / leave_time / replan
+    → mocks: 海淀·中关村·国贸等
   ← { tools[], recommendation, narrative, engine }
 ```
 

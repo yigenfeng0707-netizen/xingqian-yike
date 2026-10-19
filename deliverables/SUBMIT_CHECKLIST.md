@@ -23,8 +23,8 @@
 
 | 缺口 | 状态 | 说明 |
 |------|------|------|
-| **公开 GitHub 仓库 URL** | 未完成 | 需 push `xingqian-yike-src.zip` 或本仓库到公开 repo，填表用 HTTPS URL |
-| **在线 Demo URL** | 未完成 | 建议 Vercel / Cloudflare Pages / GitHub Pages；本地 `npm run build` 已通过 |
+| **公开 GitHub 仓库 URL** | 已完成 | https://github.com/yigenfeng0707-netizen/xingqian-yike |
+| **在线 Demo URL** | 已完成 | https://yigenfeng0707-netizen.github.io/xingqian-yike/studio/ （GitHub Pages 静态导出） |
 | **队名** | 待从报名表拉取 | 用户称在飞书组队/报名表里；公开表单无登录不可见 |
 | **队长姓名** | 待从报名表拉取 | 同上 |
 | **电话 + 微信** | 待从报名表拉取 | 同上；提交表通常需要 |
@@ -37,8 +37,8 @@
 2. 赛道：赛道二 AI+生活（智慧出行方向）  
 3. 一句话：出门前 30 秒，生成「唯一推荐行动」；延误时自动改线  
 4. 作品类型：Agent · Web App  
-5. 仓库 URL：（待填）  
-6. Demo URL：（待填）  
+5. 仓库 URL：https://github.com/yigenfeng0707-netizen/xingqian-yike  
+6. Demo URL：https://yigenfeng0707-netizen.github.io/xingqian-yike/studio/  
 7. PPT：上传 `行前一刻-路演PPT.pptx`  
 8. 海报：上传 `行前一刻-海报.png`  
 9. 源码：仓库公开即可；必要时附 `xingqian-yike-src.zip`  

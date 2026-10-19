@@ -45,7 +45,7 @@ export default function AboutPage() {
       <h2 className="mt-10 text-xl font-semibold text-slate-900">技术栈</h2>
       <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
         <li>Next.js App Router + TypeScript + Tailwind</li>
-        <li>服务端 Agent 编排（/api/plan、/api/replan），UI 展示完整工具轨迹</li>
+        <li>浏览器内 Agent 编排（planner.runPlan / runReplan），UI 展示完整工具轨迹</li>
         <li>默认离线高质量北京 Mock；若设置 OPENAI_API_KEY 则叙事层可走 LLM</li>
       </ul>
 
