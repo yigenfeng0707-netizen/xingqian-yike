@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && touch out/.nojekyll",
+    "start": "echo \"Static export: use npm run dev (basePath /xingqian-yike) or serve out/. Public Demo is GitHub Pages.\" && exit 1",
+    "lint": "next lint",
+    "deploy:pages": "npm run build && npx --yes gh-pages -d out -t --nojekyll -m \"deploy: GitHub Pages\""
   },
   "dependencies": {
     "react": "^18",
