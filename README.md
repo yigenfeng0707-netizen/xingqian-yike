@@ -1,5 +1,12 @@
 # 行前一刻
 
+## 在线入口（ACC 2026）
+
+- **公开仓库**: https://github.com/yigenfeng0707-netizen/xingqian-yike
+- **可运行 Demo（StackBlitz 一键）**: https://stackblitz.com/github/yigenfeng0707-netizen/xingqian-yike
+- 本地: `npm ci && npm run build && npm run start` → http://localhost:3000/studio
+
+
 > ACC 2026 Time to Build · **赛道：AI+生活** · 方向：智慧出行  
 > 出门前 30 秒，根据目的地、出发约束、天气与交通偏好，生成「唯一推荐行动」，延误时自动改线。
 
