@@ -5,7 +5,8 @@
 - **副标题 / 价值主张**：出门前 30 秒，唯一推荐行动；延误自动改线
 - **赛道标识**：ACC 2026 · AI+生活 · 智慧出行（勿写成独立「智慧出行赛道」）
 - **主视觉**：Agent 工作室截图（工具轨迹 + 结果卡「xx:xx 出门」）
-- **二维码**：Demo 链接 或 GitHub 仓库（现场打印前更新）
+- **Demo 入口**：直接展示 GitHub Pages 链接（非二维码）；文案「点击链接看 Demo 演示」
+- Demo URL：https://yigenfeng0707-netizen.github.io/xingqian-yike/studio/
 - **队名 / 作品类型**：Agent · Web App
 
 ## 构图建议
